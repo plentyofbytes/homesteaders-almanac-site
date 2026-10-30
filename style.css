@@ -1,0 +1,75 @@
+/* Homesteader's Almanac: palette and type from the almanac style guide (parchment, ink, sage, terracotta). */
+@font-face { font-family: "IM Fell English"; src: url("fonts/imfell.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "EB Garamond"; src: url("fonts/ebgaramond.woff2") format("woff2"); font-weight: 400 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "EB Garamond"; src: url("fonts/ebgaramond-italic.woff2") format("woff2"); font-weight: 400 800; font-style: italic; font-display: swap; }
+
+:root {
+  --paper: #F4ECDC;
+  --card: #E8DCC4;
+  --ink: #3B2F25;
+  --ink-soft: #6B5A4A;
+  --sage: #5F7150;
+  --terracotta: #A5502F;
+  --bark: #7A5C3E;
+  --rule: #cdbf9f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1F1A16; --card: #2B241E; --ink: #EFE6D2; --ink-soft: #BFB29C;
+    --sage: #A3B58E; --terracotta: #D98A68; --bark: #B79870; --rule: #4a3f33;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 1.25rem/1.6 "EB Garamond", Georgia, serif;
+}
+a { color: var(--terracotta); text-underline-offset: 0.18em; }
+a:hover { color: var(--sage); }
+:focus-visible { outline: 3px solid var(--sage); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: 44rem; margin: 0 auto; padding: 0 1rem; }
+
+header.site { padding: 1.75rem 0 1rem; border-bottom: 2px double var(--rule); }
+header.site .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem; }
+.wordmark { font-family: "IM Fell English", Georgia, serif; font-size: 1.7rem; line-height: 1.1; color: var(--ink); text-decoration: none; }
+nav a { margin-left: 1.25rem; color: var(--ink-soft); text-decoration: none; font-size: 1.1rem; }
+nav a:first-child { margin-left: 0; }
+nav a:hover, nav a[aria-current="page"] { color: var(--terracotta); text-decoration: underline; text-underline-offset: 0.25em; }
+
+main { padding: 2rem 0 3rem; }
+h1, h2 { font-family: "IM Fell English", Georgia, serif; font-weight: 400; line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(2.2rem, 7vw, 3.25rem); }
+h2 { font-size: 1.65rem; margin-top: 2.5rem; }
+p { margin: 0.9rem 0 0; }
+.lede { font-size: 1.4rem; color: var(--ink); margin-top: 1rem; }
+.stamp {
+  display: inline-block; margin-top: 1.25rem; padding: 0.15rem 0.8rem;
+  border: 1.5px dashed var(--bark); border-radius: 999px;
+  color: var(--bark); font-size: 1rem; letter-spacing: 0.04em;
+}
+
+figure { margin: 0; }
+.plate { margin-top: 2rem; padding: 0.6rem; background: var(--card); border: 2px solid var(--bark); }
+.plate img { display: block; width: 100%; height: auto; outline: 1px dashed var(--bark); outline-offset: -0.35rem; }
+figcaption { margin-top: 0.5rem; font-size: 1.05rem; color: var(--ink-soft); }
+figcaption i { font-style: italic; }
+
+ul.inside { padding: 0; list-style: none; margin: 1rem 0 0; }
+ul.inside li { padding: 0.55rem 0 0.55rem 1.6rem; border-top: 1px solid var(--rule); position: relative; }
+ul.inside li:last-child { border-bottom: 1px solid var(--rule); }
+ul.inside li::before { content: "\2766"; position: absolute; left: 0; top: 0.5rem; color: var(--sage); font-size: 1rem; }
+ul.inside strong { font-weight: 600; }
+
+.gallery { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin-top: 1.25rem; }
+.gallery .plate { margin-top: 0; }
+
+.card { margin-top: 1.5rem; padding: 1.1rem 1.25rem; background: var(--card); border-left: 4px solid var(--sage); }
+.card p:first-child { margin-top: 0; }
+.mail { font-size: clamp(1.1rem, 5.4vw, 1.5rem); overflow-wrap: anywhere; font-family: "IM Fell English", Georgia, serif; }
+
+footer.site { border-top: 2px double var(--rule); padding: 1.25rem 0 2.5rem; color: var(--ink-soft); font-size: 1rem; }
+footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; }
+footer.site a { color: var(--ink-soft); }
